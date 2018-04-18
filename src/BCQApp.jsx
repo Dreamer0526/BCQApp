@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import {HashRouter, Switch, Route} from 'react-router-dom';
 
 import Application from './Application/Application';
-import Consent from './Consent/Consent';
-import logo from './logo.svg';
+import Approval from './Approval/Approval';
+// import logo from './logo.svg';
 import './BCQApp.css';
 
 class BCQApp extends Component {
@@ -16,19 +16,16 @@ class BCQApp extends Component {
   render() {
     return (
       <HashRouter>
-        <div className="App">
+        <div className="app">
           {/* sidebar here */}
           <main>
-            <header className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h1 className="App-title">Welcome to React</h1>
-            </header>
+            {/* <header></header> */}
             <Switch>
               <Route path='/application' render={ () => {
                 return <Application/>
               }}/>
-              <Route path='/consent' render={ () => {
-                return <Consent/>
+              <Route path='/approval' render={ () => {
+                return <Approval/>
               }}/>
             </Switch>
           </main>
