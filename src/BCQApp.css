@@ -24,7 +24,6 @@ body {
 h2 {
   position: relative;
   color: var(--text);
-  margin: 100px 0 25px 0;
   font-size: 3em;
   letter-spacing: 7px;
 }

@@ -12,12 +12,12 @@ class Application extends Component {
   }
 
   render() {
-    return <Row className='base-padding-top'>
+    return (<Row className='base-padding-top'>
       <Col xs={12} sm={10} smOffset={1} md={8} mdOffset={2} lg={6} lgOffset={3}>
         <Row>
-          <h2>Application</h2>
+          <h2> Application </h2>
         </Row>
-        <Row className='base-margin-top'>
+        <Row className='base-margin-top dbl-padding-bottom'>
           <Col xs={10} xsOffset={1} sm={8} smOffset={2} md={8} mdOffset={2} lg={8} lgOffset={2}>
             <form className='base-padding-left base-padding-right'>
               <input  id='name'
@@ -40,7 +40,7 @@ class Application extends Component {
           </Col>
         </Row>
       </Col> 
-    </Row>;
+    </Row>);
   }
 }
 
