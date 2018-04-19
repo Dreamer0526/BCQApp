@@ -1,0 +1,112 @@
+/* links */
+.nfl a, .mlb a, .nhl a, .pga a {text-decoration:none;transition: color 0.2s ease-out;}
+.nfl a {color:var(--blue);}
+.nfl a:hover {color:darken(var(--blue), 20%);}
+.mlb a {color:var(--green);}
+.mlb a:hover {color:darken(var(--green), 20%);}
+.nhl a {color:var(--yellow);}
+.nhl a:hover {color:darken(var(--yellow), 20%);}
+.pga a {color:var(--orange);}
+.pga a:hover {color:darken(var(--orange), 20%);}
+
+/* wrapper */
+.table-wrapper {
+    width:100%;
+    max-width:1000px;
+    /* margin:20px auto 100px auto; */
+    padding:0;
+    background:var(--light-bg);
+    color:var(--text);
+    overflow:hidden;
+    position:relative;
+}
+
+/* lists */
+.table-row ul {
+    margin:0;
+    padding:0;
+  }
+
+.table-row ul li  {
+    margin:0;
+    font-size:16px;
+    font-weight:normal;
+    list-style:none;
+    display:inline-block;
+    width:20%;
+    box-sizing:border-box;
+
+    /* @media only screen and (max-width:767px) and (min-width:480px) {
+      font-size:13px;
+    }
+    @media only screen and (max-width:479px) {
+      font-size:13px;
+    } */
+}
+
+.table-title ul li {
+    padding:15px 13px;
+  }
+
+.table-row ul li {
+    padding:5px 10px;
+  }
+
+
+/* rows */
+.table-row {
+    padding:20px 0;
+    height:70px;
+    font-size:0;
+    position:relative;
+    overflow:hidden;
+    transition:all 0.2s ease-out;
+    border-top:1px solid darken(var(--light-bg), 100%);
+  }
+
+.table-row:hover {
+    background-color:lighten(var(--dark-bg), 10%);
+    height:110px;
+    /* @media only screen and (max-width : 767px) {
+      height:85px;
+    }
+    @media only screen and (max-width : 359px) {
+      height:105px;
+    } */
+  }
+
+.table-title {
+    padding:25px 0 5px 0;
+    height:80px;
+    font-size:0;
+    background-color:var(--light-bg);
+    border-left:3px solid lighten(var(--light-bg), 100%);
+  }
+
+.table-title:hover {
+    height:80px;
+    background-color:var(--light-bg);
+    border-left:3px solid lighten(var(--light-bg), 100%);
+  }
+  
+/* .title-hide {
+    @media only screen and (max-width:767px) {
+      display:none;
+    }
+} */
+
+/* more content */
+ul.more-content li {
+    position:relative;
+    top:8px;
+    font-size:13px;
+    margin:0;
+    padding:10px 13px;
+    display:block;
+    height:50px;
+    width:100%;
+    color:darken(var(--text),50%);
+    /* @media only screen and (max-width:767px) {
+      font-size:11px;
+    } */
+  }

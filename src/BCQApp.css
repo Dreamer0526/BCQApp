@@ -1,5 +1,6 @@
 /* Variables */
 :root{
+  --half-spacing: 15px;
   --base-spacing: 30px;
   --dbl-spacing: 60px;
 
@@ -16,9 +17,10 @@
 /* Rules */
 body {
   font-family: 'Lato', sans-serif;
-  background: var(--dark-bg);
+  font-size: 16px;
   color: var(--text);
   text-align: center;
+  background: var(--dark-bg);
 }
 
 h2 {
@@ -27,6 +29,16 @@ h2 {
   font-size: 3em;
   letter-spacing: 7px;
 }
+
+.none-padding-top     { padding-top: 0 !important; }
+.none-padding-right   { padding-right: 0 !important; }
+.none-padding-bottom  { padding-bottom: 0 !important; }
+.none-padding-left    { padding-left: 0 !important; }
+
+.half-padding-top     { padding-top: var(--half-spacing) !important; }
+.half-padding-right   { padding-right: var(--half-spacing) !important; }
+.half-padding-bottom  { padding-bottom: var(--half-spacing) !important; }
+.half-padding-left    { padding-left: var(--half-spacing) !important; }
 
 .base-padding-top     { padding-top: var(--base-spacing) !important; }
 .base-padding-right   { padding-right: var(--base-spacing) !important; }
@@ -37,6 +49,16 @@ h2 {
 .dbl-padding-right   { padding-right: var(--dbl-spacing) !important; }
 .dbl-padding-bottom  { padding-bottom: var(--dbl-spacing) !important; }
 .dbl-padding-left    { padding-left: var(--dbl-spacing) !important; }
+
+.none-margin-top     { margin-top: 0 !important; }
+.none-margin-right   { margin-right: 0 !important; }
+.none-margin-bottom  { margin-bottom: 0 !important; }
+.none-margin-left    { margin-left: 0 !important; }
+
+.half-margin-top     { margin-top: var(--half-spacing) !important; }
+.half-margin-right   { margin-right: var(--half-spacing) !important; }
+.half-margin-bottom  { margin-bottom: var(--half-spacing) !important; }
+.half-margin-left    { margin-left: var(--half-spacing) !important; }
 
 .base-margin-top     { margin-top: var(--base-spacing) !important; }
 .base-margin-right   { margin-right: var(--base-spacing) !important; }

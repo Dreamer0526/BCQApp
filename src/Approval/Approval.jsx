@@ -7,8 +7,8 @@ import './Approval.css';
 class Approval extends Component {
   constructor(props) {
     super(props);
-    this.tableHeader = ['Name', 'URL', 'Cer', 'Op'];
-    this.tableBody = [
+    this.header = ['Name', 'URL', 'Cer', 'Op'];
+    this.data = [
       ['name1', 'http://1.blablabla.com', 'certificate1'],
       ['name2', 'http://2.blablabla.com', 'certificate2'],
       ['name3', 'http://3.blablabla.com', 'certificate3'],
@@ -23,28 +23,59 @@ class Approval extends Component {
         <Row>
           <h2> View Application </h2>
         </Row>
-        <Row> 
-          <Table>
-            <thead>
-              <tr>
-                { this.tableHeader.map( th => {
-                  return <th> {th} </th>;
-                  }
-                )}
-              </tr>
-            </thead>
-            <tbody>
-              { this.tableBody.map( obj => {
-                  return <tr>
-                    <td> {obj[0]} </td>
-                    <td> {obj[1]} </td>
-                    <td><Button> View Certificate </Button></td>
-                    <td> {obj[2]} </td>
-                  </tr>
+        <Row className=' base-margin-top dbl-margin-bottom'>
+          <div className='table-wrapper'>
+              <div className="table-row table-title">
+                <ul>
+                {
+                  this.header.map( h => {
+                    return <li> {h} </li>
+                  })
                 }
-              )}
-            </tbody>
-          </Table>
+                </ul>
+              
+                {/* <ul>
+                  <li>Sport</li>
+                  <li>Entry</li>
+                  <li>Entries</li>
+                  <li>Max</li>
+                  <li>Time</li>
+                </ul>  */}
+              </div>
+              
+              
+              <div className="table-row nfl">
+              {
+                  this.data.map( e => {
+                    return <span>
+                      <ul>
+                        <li> {e[0]} </li>
+                        <li> {e[1]} </li>
+                        <li> View Certificate </li>
+                        <li> options </li>
+                      </ul>
+                      <ul class="more-content">
+                        <li>{e[2]}</li>
+                      </ul>
+                    </span>
+                  })
+                }
+              </div>
+              
+              {/* <div className="table-row nfl">
+                <ul>
+                  <li><a href="#">NHL</a></li>
+                  <li>$50</li>
+                  <li>12</li>
+                  <li>48</li>
+                  <li>12:00ET</li>
+                </ul>
+                <ul class="more-content">
+                  <li>This 1665-player contest boasts a $300,000.00 prize pool and pays out the top 300 finishing positions. First place wins $100,000.00. Good luck!</li>
+                </ul>
+              </div> */}
+              
+          </div>
         </Row>
       </Col>
     </Row>);
