@@ -2,13 +2,23 @@ import React, { Component } from 'react';
 import {
   Row, Col
 } from 'react-bootstrap';
+import { MorphIcon } from 'react-svg-buttons';
 import './TableRow.css';
 
 class TableRow extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {}
+    this.state = {
+      moreContentDisplay: false,
+    }
+  }
+
+  onCickView() {
+    let previousContentState = this.state.moreContentDisplay;
+    this.setState({
+      moreContentDisplay: !previousContentState
+    });
   }
 
   render() {
@@ -28,8 +38,39 @@ class TableRow extends Component {
           }
         </ul>
       </div>;
-      
-    return <h2> {this.props.data} </h2>;
+    
+    let displayStyle = 'table-row ';
+    if (this.state.moreContentDisplay) {
+      displayStyle += 'more-content-show';
+    } else {
+      displayStyle = 'table-row ';
+    }
+
+    return <div className={displayStyle}>
+      <ul className='nfl'>
+        <li className={itemWidth[0]}><span> {data['name']} </span></li>
+        <li className={itemWidth[1] + ' text-align-left'}><a> {data['url']} </a></li>
+        <li className={itemWidth[2]}>
+          <MorphIcon  type='bars' 
+                      size={25}
+                      thickness={2} 
+                      color='var(--blue)'
+                      onClick={this.onCickView.bind(this)}/>
+        </li>
+        <li className={itemWidth[3]}>
+          <MorphIcon  className='half-margin-right'
+                      type='check' 
+                      size={25}
+                      thickness={2}
+                      color='var(--green)'/>
+          <MorphIcon  type='cross'
+                      size={25}
+                      thickness={2}
+                      color='var(--orange)'/>
+        </li>
+      </ul>
+      <ul className='half-margin-top table-more-content'> {data['certificate']} </ul>
+    </div>
   }
 }
 

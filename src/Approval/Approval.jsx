@@ -25,7 +25,7 @@ class Approval extends Component {
       { 'name':'name4', 'url': 'http://4.blablablablablablablablablablablablablablablablablablablablablablablabla.com', 'certificate': 'certificate4'}
     ];
 
-    this.widthDistribution = [20, 20, 40, 20];
+    this.widthDistribution = [20, 40, 20, 20];
 
     this.state = {
       checkedTab: 'all',
@@ -60,21 +60,21 @@ class Approval extends Component {
         </Row>
         {/* LABELS */}
         <Row className='base-margin-top'>
-          <Col xs={12} sm={3} md={2} lg={2} className={this.state.checkedTab=='all'? 'tab-checked tab-label': 'tab-label'}>
+          <Col xs={12} sm={3} md={3} lg={2} className={this.state.checkedTab=='all'? 'tab-checked tab-label': 'tab-label'}>
             <div  id='all'
                   className=''
                   onClick={this.onClick.bind(this, 'all')}>
               ALL
             </div>
           </Col>
-          <Col xs={12} sm={3} md={2} lg={2} className={this.state.checkedTab=='approved'? 'tab-checked tab-label': 'tab-label'}>
+          <Col xs={12} sm={3} md={3} lg={2} className={this.state.checkedTab=='approved'? 'tab-checked tab-label': 'tab-label'}>
             <div  id='approved'
                   className=''
                   onClick={this.onClick.bind(this, 'approved')}>
               APPROVED
             </div>
           </Col>
-          <Col xs={12} sm={3} md={2} lg={2} className={this.state.checkedTab=='pending'? 'tab-checked tab-label': 'tab-label'}>
+          <Col xs={12} sm={3} md={3} lg={2} className={this.state.checkedTab=='pending'? 'tab-checked tab-label': 'tab-label'}>
             <div  id='pending'
                   className=''
                   onClick={this.onClick.bind(this, 'pending')}>
@@ -89,7 +89,7 @@ class Approval extends Component {
                     widthDistribution={this.widthDistribution}
           />
           { this.state.displayedData.map( entry => {
-              return <TableRow  data={1}
+              return <TableRow  data={entry}
                                 isTableTitle={false}
                                 widthDistribution={this.widthDistribution}/>
             })

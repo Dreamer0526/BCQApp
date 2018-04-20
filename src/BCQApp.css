@@ -21,6 +21,7 @@ body {
   color: var(--text);
   text-align: center;
   background: var(--dark-bg);
+  overflow: hidden;
 }
 
 h2 {

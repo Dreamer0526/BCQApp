@@ -1,0 +1,53 @@
+/* name */
+.nfl span, .mlb span, .nhl span, .pga span { text-decoration: none; transition: color 0.2s ease-out; }
+.nfl span { color: var(--blue); }
+.mlb span { color: var(--green); }
+.nhl span { color: var(--yellow); }
+.pga span { color: var(--orange); }
+
+/* url */
+.table-row a { text-decoration: none; color: var(--text); transition: color 0.2s ease-out; cursor: pointer; }
+
+/* rows */
+.table-row { 
+  padding: 20px 0;
+  height: 70px;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid darken(var(--light-bg), 100%);
+  transition: height 0.2s linear;
+}
+
+.table-title { 
+  padding: 15px 0 15px 0;
+  height: 80px;
+  background-color: var(--light-bg);
+  border-left: 3px solid lighten(var(--light-bg), 100%);
+}
+
+.table-title ul li { 
+  padding: 15px 13px;
+}
+
+.table-row ul li { 
+  margin: 0;
+  font-size: 16px;
+  font-weight: normal;
+  list-style: none;
+  display: inline-block;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow:  ellipsis;
+}
+
+/* more content */
+.table-more-content { 
+position: relative;
+font-size: 13px;
+display: block;
+width: 100%;
+}
+  
+.more-content-show {
+height: 140px;
+}
