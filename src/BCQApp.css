@@ -69,3 +69,13 @@ h2 {
 .dbl-margin-right   { margin-right: var(--dbl-spacing) !important; }
 .dbl-margin-bottom  { margin-bottom: var(--dbl-spacing) !important; }
 .dbl-margin-left    { margin-left: var(--dbl-spacing) !important; }
+
+.width-10 { width: 10%; }
+.width-20 { width: 20%; }
+.width-30 { width: 30%; }
+.width-40 { width: 40%; }
+.width-50 { width: 50%; }
+
+.text-align-left { text-align: left; }
+.text-align-right { text-align: right; }
+.text-align-center { text-align: center; }

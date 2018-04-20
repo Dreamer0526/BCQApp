@@ -98,21 +98,3 @@ ul.more-content li {
   width: 100%;
   color: darken(var(--text),50%);
 }
-
-
-.tab-label {
-  float: left;
-  padding: 12px 20px;
-  margin-right: 5px;
-  cursor: pointer;
-  transition: background-color .3s;
-}
-
-.tab-checked {
-  background-color: var(--blue);
-}
-
-.tab-panel {
-  border: 2px solid var(--blue);
-  background-color: var(--light-bg);
-}
