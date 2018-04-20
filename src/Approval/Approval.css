@@ -1,5 +1,5 @@
-/* links */
-.nfl a, .mlb a, .nhl a, .pga a {text-decoration:none;transition: color 0.2s ease-out;}
+/* name */
+.nfl a, .mlb a, .nhl a, .pga a { text-decoration:none; transition:color 0.2s ease-out;}
 .nfl a {color:var(--blue);}
 .nfl a:hover {color:darken(var(--blue), 20%);}
 .mlb a {color:var(--green);}
@@ -8,6 +8,17 @@
 .nhl a:hover {color:darken(var(--yellow), 20%);}
 .pga a {color:var(--orange);}
 .pga a:hover {color:darken(var(--orange), 20%);}
+
+/* view */
+.nfl span, .mlb span, .nhl span, .pga span {text-decoration:none;transition: color 0.2s ease-out;}
+.nfl span {color:var(--blue);}
+.nfl span:hover {color:darken(var(--blue), 20%);}
+.mlb span {color:var(--green);}
+.mlb span:hover {color:darken(var(--green), 20%);}
+.nhl span {color:var(--yellow);}
+.nhl span:hover {color:darken(var(--yellow), 20%);}
+.pga span {color:var(--orange);}
+.pga span:hover {color:darken(var(--orange), 20%);}
 
 /* wrapper */
 .table-wrapper {
@@ -33,7 +44,7 @@
     font-weight:normal;
     list-style:none;
     display:inline-block;
-    width:20%;
+    width:25%;
     box-sizing:border-box;
 
     /* @media only screen and (max-width:767px) and (min-width:480px) {
@@ -97,16 +108,16 @@
 
 /* more content */
 ul.more-content li {
-    position:relative;
-    top:8px;
-    font-size:13px;
-    margin:0;
-    padding:10px 13px;
-    display:block;
-    height:50px;
-    width:100%;
-    color:darken(var(--text),50%);
-    /* @media only screen and (max-width:767px) {
-      font-size:11px;
-    } */
-  }
+  position:relative;
+  top:8px;
+  font-size:13px;
+  margin:0;
+  padding:10px 13px;
+  display:block;
+  height:50px;
+  width:100%;
+  color:darken(var(--text),50%);
+  /* @media only screen and (max-width:767px) {
+    font-size:11px;
+  } */
+}
