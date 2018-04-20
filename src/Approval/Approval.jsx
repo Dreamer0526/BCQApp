@@ -56,7 +56,7 @@ class Approval extends Component {
     return (<Row className='base-padding-top'>
       <Col xs={12} sm={10} smOffset={1} md={8} mdOffset={2} lg={6} lgOffset={3}>
         <Row>
-          <h2> View Application </h2>
+          <h2> VIEW APPLICATION </h2>
         </Row>
         {/* LABELS */}
         <Row className='base-margin-top'>
