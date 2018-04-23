@@ -28,8 +28,8 @@ class Approval extends Component {
     this.widthDistribution = [20, 40, 20, 20];
 
     this.state = {
-      checkedTab: 'all',
-      displayedData: this.allData,
+      checkedTab: 'pending',
+      displayedData: this.pendingData,
     }
   }
 
@@ -60,25 +60,25 @@ class Approval extends Component {
         </Row>
         {/* LABELS */}
         <Row className='base-margin-top'>
-          <Col xs={12} sm={3} md={3} lg={2} className={this.state.checkedTab=='all'? 'tab-checked tab-label': 'tab-label'}>
-            <div  id='all'
+          <Col xs={12} sm={3} md={3} lg={2} className={`tab-label ${this.state.checkedTab==='pending' && 'tab-checked'}`}>
+            <div  id='pending'
                   className=''
-                  onClick={this.onClick.bind(this, 'all')}>
-              ALL
+                  onClick={this.onClick.bind(this, 'pending')}>
+              PENDING
             </div>
           </Col>
-          <Col xs={12} sm={3} md={3} lg={2} className={this.state.checkedTab=='approved'? 'tab-checked tab-label': 'tab-label'}>
+          <Col xs={12} sm={3} md={3} lg={2} className={`tab-label ${this.state.checkedTab==='approved' && 'tab-checked'}`}>
             <div  id='approved'
                   className=''
                   onClick={this.onClick.bind(this, 'approved')}>
               APPROVED
             </div>
           </Col>
-          <Col xs={12} sm={3} md={3} lg={2} className={this.state.checkedTab=='pending'? 'tab-checked tab-label': 'tab-label'}>
-            <div  id='pending'
+          <Col xs={12} sm={3} md={3} lg={2} className={`tab-label ${this.state.checkedTab==='all' && 'tab-checked'}`}>
+            <div  id='all'
                   className=''
-                  onClick={this.onClick.bind(this, 'pending')}>
-              PENDING
+                  onClick={this.onClick.bind(this, 'all')}>
+              ALL
             </div>
           </Col>
         </Row>

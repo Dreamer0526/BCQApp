@@ -1,0 +1,33 @@
+.input-field {
+    background-color: transparent;
+    width: 100%;
+  
+    border: 1px solid var(--blue);
+    border-bottom: none;
+    border-radius: 0%;
+  
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+}
+  
+.input-field:hover, .input-field:focus {
+    color: #e2dedb;
+    background: var(--light-bg);
+}
+  
+.update-textarea {
+    height: 300px !important;
+}
+  
+.update-submit {
+    width: 100%;
+    cursor: pointer;
+    color: var(--text);
+    border-bottom: 1px solid var(--blue);
+}
+
+.bg-color-transparent {
+    background-color: transparent !important; 
+}

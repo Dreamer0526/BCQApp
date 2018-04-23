@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import {
   Row, Col, Form, FormControl
 } from 'react-bootstrap';
-import './Application.css';
+import './Update.css';
 
-class Application extends Component {
+class Update extends Component {
   constructor(props) {
     super(props);
 
@@ -12,31 +12,34 @@ class Application extends Component {
   }
 
   render() {
+      console.log(0);
+      console.log(this.props.location);
+      console.log(0);
     return (<Row className='base-padding-top'>
       <Col xs={12} sm={10} smOffset={1} md={8} mdOffset={2} lg={6} lgOffset={3}>
         <Row>
-          <h2> APPLICATION </h2>
+          <h2> INFORMATION <br/> UPDATE </h2>
         </Row>
         <Row className='base-margin-top dbl-padding-bottom'>
           <Col xs={10} xsOffset={1} sm={8} smOffset={2} md={8} mdOffset={2} lg={8} lgOffset={2}>
             <Form className='base-padding-left base-padding-right'>
               <FormControl  id='name'
-                            className='input-field application-input base-padding-top base-padding-bottom'
+                            className='input-field update-input base-padding-top base-padding-bottom bg-color-transparent'
                             type='text'
-                            placeholder='NAME'/>
+                            value='h'
+                            disabled={true}/>
               <FormControl  id='url'
-                            className='input-field application-input base-padding-top base-padding-bottom'
+                            className='input-field update-input base-padding-top base-padding-bottom'
                             type='text'
                             placeholder='URL'/>
               <FormControl  id='certificate'
-                            className='input-field application-textarea base-padding-top base-padding-bottom'
+                            className='input-field update-textarea base-padding-top base-padding-bottom'
                             componentClass="textarea"
                             placeholder='CERTIFICATE'/>
               <FormControl  id='submit'
-                            className='input-field application-submit half-padding-top base-padding-bottom'
+                            className='input-field update-submit half-padding-top base-padding-bottom'
                             type='submit'
                             value='GO!'/>
-              <div className="loader-inner ball-pulse"></div>
             </Form>
           </Col>
         </Row>
@@ -45,4 +48,4 @@ class Application extends Component {
   }
 }
 
-export default Application;
+export default Update;

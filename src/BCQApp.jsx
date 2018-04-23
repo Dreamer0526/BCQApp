@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import {HashRouter, Switch, Route} from 'react-router-dom';
-
+import {
+  HashRouter, Route
+} from 'react-router-dom';
 import Application from './Application/Application';
 import Approval from './Approval/Approval';
+import Update from './Update/Update';
 // import logo from './logo.svg';
 import './BCQApp.css';
 
@@ -20,14 +22,15 @@ class BCQApp extends Component {
           {/* sidebar here */}
           <main>
             {/* <header></header> */}
-            <Switch>
-              <Route path='/application' render={ () => {
-                return <Application/>
-              }}/>
-              <Route path='/approval' render={ () => {
-                return <Approval/>
-              }}/>
-            </Switch>
+            <Route path='/application' render={ () => {
+              return <Application/>
+            }}/>
+            <Route path='/approval' render={ () => {
+              return <Approval/>
+            }}/>
+            <Route path={'/update/:id'} render={ () => {
+              return <Update/>
+            }}/>
           </main>
           {/* modal here */}
         </div>
