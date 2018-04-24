@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Row, Col, Form, FormControl
+  Row, Col, Form, FormControl, FormGroup
 } from 'react-bootstrap';
 import './Application.css';
 
@@ -8,7 +8,10 @@ class Application extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {}
+    this.state = {
+      submitLoading: true,
+      submitDisabled: true,
+    }
   }
 
   render() {
@@ -32,11 +35,15 @@ class Application extends Component {
                             className='input-field application-textarea base-padding-top base-padding-bottom'
                             componentClass="textarea"
                             placeholder='CERTIFICATE'/>
-              <FormControl  id='submit'
-                            className='input-field application-submit half-padding-top base-padding-bottom'
-                            type='submit'
-                            value='GO!'/>
-              <div className="loader-inner ball-pulse"></div>
+              <FormGroup className='input-with-loader none-margin'>
+                <FormControl  id='submit'
+                              className='input-field application-submit half-padding-top base-padding-bottom'
+                              type='submit'
+                              value='GO!'
+                              disabled={this.state.submitDisabled}/>
+                <img  className={`icon-loader ${!this.state.submitLoading && 'hidden'}`}
+                    src={require('../../Common/svg-loaders/bars.svg')} />                            
+              </FormGroup>
             </Form>
           </Col>
         </Row>

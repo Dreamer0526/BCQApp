@@ -11,14 +11,14 @@ class Approval extends Component {
 
     this.dataTitle=[ 'NAME', 'URL', 'CERTIFICATE', 'OPRATION' ];
     this.allData = [
-      { 'name':'name1', 'url': 'http://1.blablabla.com', 'certificate': 'certificate1'},
-      { 'name':'name2', 'url': 'http://2.blablabla.com', 'certificate': 'certificate2'},
+      { 'name':'name1', 'url': 'http://jonjaques.github.io/react-loaders/', 'certificate': 'certificate1'},
+      { 'name':'name2', 'url': 'https://github.com/jonjaques/react-loaders', 'certificate': 'certificate2'},
       { 'name':'name3', 'url': 'http://3.blablabla.com', 'certificate': 'certificate3'},
       { 'name':'name4', 'url': 'http://4.blablablablablablablablablablablablablablablablablablablablablablablabla.com', 'certificate': 'certificate4'}
     ];
     this.approvedData = [
-      { 'name':'name1', 'url': 'http://1.blablabla.com', 'certificate': 'certificate1'},
-      { 'name':'name2', 'url': 'http://2.blablabla.com', 'certificate': 'certificate2'},
+      { 'name':'name1', 'url': 'http://jonjaques.github.io/react-loaders/', 'certificate': 'certificate1'},
+      { 'name':'name2', 'url': 'https://github.com/jonjaques/react-loaders', 'certificate': 'certificate2'},
       { 'name':'name3', 'url': 'http://3.blablabla.com', 'certificate': 'certificate3'}
     ];
     this.pendingData = [
@@ -44,6 +44,8 @@ class Approval extends Component {
         break;
       case 'pending':
         displayedData = this.pendingData;
+        break;
+      default:
         break;
     }
     this.setState({

@@ -38,6 +38,7 @@
   box-sizing: border-box;
   overflow: hidden;
   text-overflow:  ellipsis;
+  vertical-align: top;
 }
 
 /* more content */

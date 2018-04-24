@@ -31,3 +31,16 @@
 .bg-color-transparent {
     background-color: transparent !important; 
 }
+
+.icon-loader {
+    width: 10%;
+    opacity: 0.3;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.input-with-loader {
+    position: relative;
+}

@@ -31,6 +31,7 @@ h2 {
   letter-spacing: 7px;
 }
 
+.none-padding { padding: 0 !important; }
 .none-padding-top     { padding-top: 0 !important; }
 .none-padding-right   { padding-right: 0 !important; }
 .none-padding-bottom  { padding-bottom: 0 !important; }
@@ -51,6 +52,7 @@ h2 {
 .dbl-padding-bottom  { padding-bottom: var(--dbl-spacing) !important; }
 .dbl-padding-left    { padding-left: var(--dbl-spacing) !important; }
 
+.none-margin { margin: 0 !important; }
 .none-margin-top     { margin-top: 0 !important; }
 .none-margin-right   { margin-right: 0 !important; }
 .none-margin-bottom  { margin-bottom: 0 !important; }
@@ -80,3 +82,7 @@ h2 {
 .text-align-left { text-align: left; }
 .text-align-right { text-align: right; }
 .text-align-center { text-align: center; }
+
+.hidden {
+  display: none;
+}

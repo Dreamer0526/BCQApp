@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import {
-  Row, Col
-} from 'react-bootstrap';
 import { MorphIcon } from 'react-svg-buttons';
 import './TableRow.css';
 
@@ -49,7 +46,7 @@ class TableRow extends Component {
     return <div className={displayStyle}>
       <ul className='nfl'>
         <li className={itemWidth[0]}><span> {data['name']} </span></li>
-        <li className={itemWidth[1] + ' text-align-left'}><a> {data['url']} </a></li>
+        <li className={itemWidth[1] + ' text-align-left'}><a href={data['url']}> {data['url']} </a></li>
         <li className={itemWidth[2]}>
           <MorphIcon  type='bars' 
                       size={25}

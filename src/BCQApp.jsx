@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import {
   HashRouter, Route
 } from 'react-router-dom';
-import Application from './Application/Application';
-import Approval from './Approval/Approval';
-import Update from './Update/Update';
-// import logo from './logo.svg';
+import Application from './App/Application/Application';
+import Approval from './App/Approval/Approval';
+import Update from './App/Update/Update';
 import './BCQApp.css';
 
 class BCQApp extends Component {
