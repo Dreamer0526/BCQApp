@@ -4,33 +4,54 @@ import {
 } from 'react-bootstrap';
 import './Approval.css';
 import TableRow from './TableRow';
+import {allData} from '../../Common/static/allData';
+import {approvedData} from '../../Common/static/approvedData';
+import {pendingData} from '../../Common/static/pendingData';
 
 class Approval extends Component {
   constructor(props) {
     super(props);
+    
+    this.threeColWidthDistribution = [30, 40, 30];
+    this.fourColWidthDistribution = [20, 40, 20, 20];
 
-    this.dataTitle=[ 'NAME', 'URL', 'CERTIFICATE', 'OPRATION' ];
-    this.allData = [
-      { 'name':'name1', 'url': 'http://jonjaques.github.io/react-loaders/', 'certificate': 'certificate1'},
-      { 'name':'name2', 'url': 'https://github.com/jonjaques/react-loaders', 'certificate': 'certificate2'},
-      { 'name':'name3', 'url': 'http://3.blablabla.com', 'certificate': 'certificate3'},
-      { 'name':'name4', 'url': 'http://4.blablablablablablablablablablablablablablablablablablablablablablablabla.com', 'certificate': 'certificate4'}
-    ];
-    this.approvedData = [
-      { 'name':'name1', 'url': 'http://jonjaques.github.io/react-loaders/', 'certificate': 'certificate1'},
-      { 'name':'name2', 'url': 'https://github.com/jonjaques/react-loaders', 'certificate': 'certificate2'},
-      { 'name':'name3', 'url': 'http://3.blablabla.com', 'certificate': 'certificate3'}
-    ];
-    this.pendingData = [
-      { 'name':'name4', 'url': 'http://4.blablablablablablablablablablablablablablablablablablablablablablablabla.com', 'certificate': 'certificate4'}
-    ];
-
-    this.widthDistribution = [20, 40, 20, 20];
+    this.dataTitle=[ 'NAME', 'HOMEURL', 'CERTIFICATE', 'OPRATION' ];
+    this.allData = [];
+    this.approvedData = [];
+    this.pendingData = [];
 
     this.state = {
       checkedTab: 'pending',
       displayedData: this.pendingData,
+      widthDistribution: this.fourColWidthDistribution
     }
+  }
+
+  componentDidMount() {
+    // fetch('/companies?pending=1')
+    // .then(result => result.json())
+    // .then(result => {
+    //   this.pendingData = result;
+    // });
+
+    // fetch('/companies?approved=1')
+    // .then(result => result.json())
+    // .then(result => {
+    //   this.approvedData = result;
+    // });
+    
+    // fetch('/companies')
+    // .then(result => result.json())
+    // .then(result => {
+    //   this.allData = result;
+    // });
+
+    this.allData = allData;
+    this.approvedData = approvedData;
+    this.pendingData = pendingData;
+    this.setState({
+      displayedData: this.pendingData
+    })
   }
 
   onClick(section) {
@@ -50,12 +71,13 @@ class Approval extends Component {
     }
     this.setState({
       checkedTab: section,
-      displayedData
+      displayedData,
+      widthDistribution: section === 'pending'? this.fourColWidthDistribution: this.threeColWidthDistribution
     });
   }
 
   render() {
-    return (<Row className='base-padding-top'>
+    return (<Row className='base-padding-top dbl-margin-bottom'>
       <Col xs={12} sm={10} smOffset={1} md={8} mdOffset={2} lg={6} lgOffset={3}>
         <Row>
           <h2> VIEW APPLICATION </h2>
@@ -85,15 +107,17 @@ class Approval extends Component {
           </Col>
         </Row>
         {/* PANEL */}
-        <Row className='tab-panel'>
+        <Row className='tab-panel dbl-margin-bottom'>
           <TableRow data={this.dataTitle} 
                     isTableTitle={true}
-                    widthDistribution={this.widthDistribution}
-          />
-          { this.state.displayedData.map( entry => {
-              return <TableRow  data={entry}
+                    widthDistribution={this.state.widthDistribution}
+                    isPendingTab={this.state.checkedTab === 'pending'}/>
+          { this.state.displayedData.map( (entry, index) => {
+              return <TableRow  key={`tablerow_${this.state.checkedTab}_${index}`}
+                                data={entry}
                                 isTableTitle={false}
-                                widthDistribution={this.widthDistribution}/>
+                                widthDistribution={this.state.widthDistribution}                    
+                                isPendingTab={this.state.checkedTab === 'pending'}/>
             })
           }
         </Row>

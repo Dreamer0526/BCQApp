@@ -15,6 +15,14 @@ class Update extends Component {
     }
   }
 
+  handleOnClick() {
+    this.setState({
+      urlLoading: true,
+      cerLoading: true,
+      submitDisabled: true
+    })
+  }
+
   render() {
     return (<Row className='base-padding-top'>
       <Col xs={12} sm={10} smOffset={1} md={8} mdOffset={2} lg={6} lgOffset={3}>
@@ -25,31 +33,30 @@ class Update extends Component {
           <Col xs={10} xsOffset={1} sm={8} smOffset={2} md={8} mdOffset={2} lg={8} lgOffset={2}>
             <Form className='base-padding-left base-padding-right'>
               <FormControl  id='name'
-                            className='input-field update-input base-padding-top base-padding-bottom bg-color-transparent'
+                            className='input-field base-padding-top base-padding-bottom bg-color-transparent field-disabled'
                             type='text'
-                            value='h'
-                            disabled={true}/>
-              <FormGroup className='input-with-loader none-margin'>
+                            value={this.props.username}/>
+              <FormGroup className='container-relative none-margin'>
                 <FormControl  id='url'
-                              className='input-field update-input base-padding-top base-padding-bottom'
+                              className='input-field base-padding-top base-padding-bottom'
                               type='text'
                               placeholder='URL'/>
                 <img  className={`icon-loader ${!this.state.urlLoading && 'hidden'}`}
                       src={require('../../Common/svg-loaders/bars.svg')} />
               </FormGroup>
-              <FormGroup className='input-with-loader none-margin'>
+              <FormGroup className='container-relative none-margin'>
                 <FormControl  id='certificate'
-                              className='input-field update-textarea base-padding-top base-padding-bottom'
+                              className='input-field input-textarea base-padding-top base-padding-bottom'
                               componentClass='textarea'
                               placeholder='CERTIFICATE'/>
                 <img  className={`icon-loader ${!this.state.cerLoading && 'hidden'}`}
                       src={require('../../Common/svg-loaders/bars.svg')} />
               </FormGroup>
               <FormControl  id='submit'
-                            className='input-field update-submit half-padding-top base-padding-bottom'
+                            className={`input-field input-submit half-padding-top base-padding-bottom ${this.state.submitDisabled && 'field-disabled'}`}
                             type='submit'
                             value='UPDATE'
-                            disabled={this.state.submitDisabled}/>
+                            onClick={this.handleOnClick.bind(this)}/>
             </Form>
           </Col>
         </Row>

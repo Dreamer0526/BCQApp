@@ -1,17 +1,50 @@
 import React, { Component } from 'react';
 import {
-  Row, Col, Form, FormControl, FormGroup
+  Row, Col, Form, FormControl, FormGroup, Button
 } from 'react-bootstrap';
 import './Application.css';
+// import axios from 'axios';
 
 class Application extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      submitLoading: true,
-      submitDisabled: true,
+      name: '',
+      url: '',
+      cert: '',
+      submitLoading: false,
+      submitDisabled: false,
+      showModal: false
     }
+  }
+
+  postApplication() {
+    // post('/companies?pending=1')
+    // .then(result => result.json())
+    // .then(result => {
+    //   this.pendingData = result;
+    // });
+  }
+
+  handleOnClick() {
+    this.setState({
+      submitDisabled: true,
+      submitLoading: true
+    })
+
+    this.postApplication().then(()=>{
+      this.setState({
+        submitDisabled: false,
+        submitLoading: false
+      })
+    })
+  }
+
+  handleOnChange(field, value) {
+    this.setState({
+      [field]: value
+    })
   }
 
   render() {
@@ -22,25 +55,30 @@ class Application extends Component {
         </Row>
         <Row className='base-margin-top dbl-padding-bottom'>
           <Col xs={10} xsOffset={1} sm={8} smOffset={2} md={8} mdOffset={2} lg={8} lgOffset={2}>
+          { this.state.showModal && <div>Hi</div>
+          }
             <Form className='base-padding-left base-padding-right'>
               <FormControl  id='name'
-                            className='input-field application-input base-padding-top base-padding-bottom'
+                            className='input-field base-padding-top base-padding-bottom'
                             type='text'
-                            placeholder='NAME'/>
+                            placeholder='NAME'
+                            onChange={(event) => this.handleOnChange('name', event.target.value)}/>
               <FormControl  id='url'
-                            className='input-field application-input base-padding-top base-padding-bottom'
+                            className='input-field base-padding-top base-padding-bottom'
                             type='text'
-                            placeholder='URL'/>
+                            placeholder='URL'
+                            onChange={(event) => this.handleOnChange('url', event.target.value)}/>                            
               <FormControl  id='certificate'
-                            className='input-field application-textarea base-padding-top base-padding-bottom'
+                            className='input-field input-textarea base-padding-top base-padding-bottom'
                             componentClass="textarea"
-                            placeholder='CERTIFICATE'/>
-              <FormGroup className='input-with-loader none-margin'>
+                            placeholder='CERTIFICATE'
+                            onChange={(event) => this.handleOnChange('cert', event.target.value)}/>
+              <FormGroup className='container-relative none-margin'>
                 <FormControl  id='submit'
-                              className='input-field application-submit half-padding-top base-padding-bottom'
+                              className={`input-field input-submit half-padding-top base-padding-bottom ${this.state.submitDisabled && 'field-disabled'}`}
                               type='submit'
                               value='GO!'
-                              disabled={this.state.submitDisabled}/>
+                              onClick={this.handleOnClick.bind(this)}/>
                 <img  className={`icon-loader ${!this.state.submitLoading && 'hidden'}`}
                     src={require('../../Common/svg-loaders/bars.svg')} />                            
               </FormGroup>

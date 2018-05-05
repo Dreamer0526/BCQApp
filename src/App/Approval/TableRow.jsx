@@ -18,14 +18,24 @@ class TableRow extends Component {
     });
   }
 
+  renderCert(cerData) {
+    return <div>
+      { cerData.map( row => {
+          return <p>{row}</p>
+        })
+      }
+    </div>
+  }
+
   render() {
+    let index = -1;
+    let {data} = this.props;
     let itemWidth = this.props.widthDistribution.map( w => {
         return 'width-' + w.toString();
     });
-    let index = -1;
-    let {data} = this.props;
 
-    if (this.props.isTableTitle)
+    // render for table title
+    if (this.props.isTableTitle) {
       return <div className='table-row table-title'>
         <ul>
           { data.map( d => {
@@ -34,19 +44,18 @@ class TableRow extends Component {
             })
           }
         </ul>
-      </div>;
-    
-    let displayStyle = 'table-row ';
-    if (this.state.moreContentDisplay) {
-      displayStyle += 'more-content-show';
-    } else {
-      displayStyle = 'table-row ';
+      </div>
     }
 
-    return <div className={displayStyle}>
+    // render for table body
+    let cerData = data['caCert'].split('\n');
+    let cerHeight = cerData.length * 15;    
+    let displayStyle = this.state.moreContentDisplay? {height: 85+cerHeight+'px'}: {};
+
+    return <div className='table-row' style={displayStyle}>
       <ul className='nfl'>
         <li className={itemWidth[0]}><span> {data['name']} </span></li>
-        <li className={itemWidth[1] + ' text-align-left'}><a href={data['url']}> {data['url']} </a></li>
+        <li className={itemWidth[1] + ' text-align-center'}><a href={data['homeUrl']}> {data['homeUrl']} </a></li>
         <li className={itemWidth[2]}>
           <MorphIcon  type='bars' 
                       size={25}
@@ -54,19 +63,22 @@ class TableRow extends Component {
                       color='var(--blue)'
                       onClick={this.onCickView.bind(this)}/>
         </li>
-        <li className={itemWidth[3]}>
-          <MorphIcon  className='half-margin-right'
-                      type='check' 
-                      size={25}
-                      thickness={2}
-                      color='var(--green)'/>
-          <MorphIcon  type='cross'
-                      size={25}
-                      thickness={2}
-                      color='var(--orange)'/>
-        </li>
+        {this.props.isPendingTab && <li className={itemWidth[3]}>
+            <MorphIcon  className='half-margin-right'
+                        type='check' 
+                        size={25}
+                        thickness={2}
+                        color='var(--green)'/>
+            <MorphIcon  type='cross'
+                        size={25}
+                        thickness={2}
+                        color='var(--orange)'/>
+          </li>
+        }
       </ul>
-      <ul className='half-margin-top table-more-content'> {data['certificate']} </ul>
+      <ul className='half-margin-top table-more-content'> 
+        {this.renderCert(cerData)}
+      </ul>
     </div>
   }
 }

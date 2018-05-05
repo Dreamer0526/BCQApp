@@ -16,7 +16,7 @@
     "react-scripts": "1.1.4",
     "react-svg-buttons": "^0.4.0"
   },
-  "proxy": "http://10.140.41.185:8080",
+  "proxy": "http://173.37.4.234:8080/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

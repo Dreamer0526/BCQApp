@@ -1,28 +1,15 @@
-.input-field {
-  background-color: transparent;
-  width: 100%;
-
-  border: 1px solid var(--blue);
-  border-bottom: none;
-  border-radius: 0%;
-
-  transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
+.modal {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    position: fixed;
+    z-index: 1050;
+    border-radius: 0em;
 }
 
-.input-field:hover, .input-field:focus {
-  color: #e2dedb;
-  background: var(--light-bg);
-}
-
-.application-textarea {
-  height: 300px !important;
-}
-
-.application-submit {
-  cursor: pointer;
-  color: var(--text);
-  border-bottom: 1px solid var(--blue) !important;
+.modal-wraper {
+    width: 60%;
+    background-color: #eee;
+    border-radius: 0em;
 }

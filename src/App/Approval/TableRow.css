@@ -48,7 +48,11 @@ font-size: 13px;
 display: block;
 width: 100%;
 }
-  
-.more-content-show {
-height: 140px;
+
+.table-more-content div p {
+  height: 5px;
 }
+  
+/* .more-content-show {
+  height: auto;
+} */

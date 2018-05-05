@@ -1,6 +1,6 @@
 /* Variables */
 :root{
-  --half-spacing: 15px;
+  --half-spacing: 20px;
   --base-spacing: 30px;
   --dbl-spacing: 60px;
 
@@ -14,14 +14,14 @@
   --text: #6D7781;
 }
 
-/* Rules */
+/* General Rules */
 body {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
   color: var(--text);
   text-align: center;
   background: var(--dark-bg);
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 h2 {
@@ -85,4 +85,57 @@ h2 {
 
 .hidden {
   display: none;
+}
+
+/* input field */
+.input-field {
+  background-color: transparent;
+  width: 100%;
+
+  border: 1px solid var(--blue);
+  border-bottom: none;
+  border-radius: 0%;
+
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+}
+
+.input-field:hover, .input-field:focus {
+  color: #e2dedb;
+  background: var(--light-bg);
+}
+
+.input-textarea {
+  height: 300px !important;
+}
+
+.input-submit {
+  cursor: pointer;
+  color: var(--text);
+  border-bottom: 1px solid var(--blue) !important;
+}
+
+/* button with loader icon */
+.icon-loader {
+  width: 10%;
+  opacity: 0.3;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.icon-loader:hover {
+  cursor: not-allowed;
+}
+
+.container-relative {
+  position: relative;
+}
+
+.field-disabled {
+  cursor: not-allowed !important;
+  background-color: transparent;
 }

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {
-  HashRouter, Route
+  HashRouter, Route, DefaultRoute
 } from 'react-router-dom';
+import Home from './App/Home/Home';
 import Application from './App/Application/Application';
 import Approval from './App/Approval/Approval';
 import Update from './App/Update/Update';
@@ -21,14 +22,17 @@ class BCQApp extends Component {
           {/* sidebar here */}
           <main>
             {/* <header></header> */}
+            <Route path='/' exact render={() => {
+              return <Home/>
+            }}/>
             <Route path='/application' render={ () => {
               return <Application/>
             }}/>
             <Route path='/approval' render={ () => {
               return <Approval/>
             }}/>
-            <Route path={'/update/:id'} render={ () => {
-              return <Update/>
+            <Route path={'/update'} render={ () => {
+              return <Update username={'default'}/>
             }}/>
           </main>
           {/* modal here */}
