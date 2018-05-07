@@ -69,12 +69,12 @@ class TableRow extends Component {
                         type='check' 
                         size={25}
                         thickness={2}
-                        color='var(--green)'/>
+                        color={this.props.isPending? 'var(--light-bg)' : 'var(--green)'}/>
             <MorphIcon  type='cross'
                         onClick={this.props.onDeny}
                         size={25}
                         thickness={2}
-                        color='var(--orange)'/>
+                        color={this.props.isPending? 'var(--light-bg)' : 'var(--orange)'}/>                        
           </li>
         }
       </ul>

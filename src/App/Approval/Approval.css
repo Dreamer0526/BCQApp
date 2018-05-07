@@ -20,3 +20,15 @@
   border: 2px solid var(--blue);
   background-color: var(--light-bg);
 }
+
+.color-orange {
+  margin-left: 10px;
+  margin-right: 5px;
+  color: var(--orange);
+}
+
+.color-green {
+  margin-right: 5px;
+  margin-left: 10px;  
+  color: var(--green);
+}

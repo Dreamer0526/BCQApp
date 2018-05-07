@@ -12,7 +12,24 @@ class BCQApp extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {}
+    this.state = {
+      userSelf: {},
+      userStatus: ''
+    }
+  }
+
+  componentWillMount() {
+    fetch('/self')
+    .then(result => result.json())
+    .then(result => {
+      this.setState({ userSelf: result })
+    }).catch(console.error)
+
+    fetch('/status')
+    .then(result => result.json())
+    .then(result => {
+      this.setState({ userStatus: result.status })
+    }).catch(console.error)
   }
 
   render() {
@@ -29,10 +46,10 @@ class BCQApp extends Component {
               return <Application/>
             }}/>
             <Route path='/approval' render={ () => {
-              return <Approval/>
+              return <Approval status={this.state.userStatus}/>
             }}/>
             <Route path={'/update'} render={ () => {
-              return <Update username={'default'}/>
+              return <Update user={this.state.userSelf}/>
             }}/>
           </main>
           {/* modal here */}
