@@ -3,7 +3,7 @@ import {
   Row, Col, Form, FormControl, FormGroup, Button
 } from 'react-bootstrap';
 import './Application.css';
-// import axios from 'axios';
+import Modal from '../Common/Modal';
 
 class Application extends Component {
   constructor(props) {
@@ -19,26 +19,18 @@ class Application extends Component {
     }
   }
 
-  postApplication() {
-    // post('/companies?pending=1')
-    // .then(result => result.json())
-    // .then(result => {
-    //   this.pendingData = result;
-    // });
-  }
-
   handleOnClick() {
     this.setState({
       submitDisabled: true,
       submitLoading: true
     })
-
-    this.postApplication().then(()=>{
+    setTimeout(() => {
       this.setState({
         submitDisabled: false,
-        submitLoading: false
+        submitLoading: false,
+        showModal: true
       })
-    })
+    }, 2500)
   }
 
   handleOnChange(field, value) {
@@ -47,16 +39,21 @@ class Application extends Component {
     })
   }
 
+  onModalClose = () => {
+    this.setState({
+      showModal: false
+    })
+  }
+
   render() {
-    return (<Row className='base-padding-top'>
+    return (<Row className='container-relative'>
+      { this.state.showModal && <Modal caller='application' display={this.state.showModal} modalClose={this.onModalClose.bind(this)}/> }
       <Col xs={12} sm={10} smOffset={1} md={8} mdOffset={2} lg={6} lgOffset={3}>
-        <Row>
+        <Row className='dbl-margin-top'>
           <h2> APPLICATION </h2>
         </Row>
         <Row className='base-margin-top dbl-padding-bottom'>
           <Col xs={10} xsOffset={1} sm={8} smOffset={2} md={8} mdOffset={2} lg={8} lgOffset={2}>
-          { this.state.showModal && <div>Hi</div>
-          }
             <Form className='base-padding-left base-padding-right'>
               <FormControl  id='name'
                             className='input-field base-padding-top base-padding-bottom'
@@ -85,7 +82,7 @@ class Application extends Component {
             </Form>
           </Col>
         </Row>
-      </Col> 
+      </Col>
     </Row>);
   }
 }

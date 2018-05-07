@@ -9,7 +9,8 @@ class Home extends Component {
     super(props);
 
     this.state = {
-      inShort: true
+      inShort: true,
+      menuHidden: true
     }
   }
   
@@ -18,16 +19,20 @@ class Home extends Component {
       this.setState({
         inShort: false
       });
-  }, 1000);
+    }, 1000);
+    
+    setTimeout(() => {
+      this.setState({
+        menuHidden: false
+      });
+    }, 2000);
   }
 
   render() {
-    let applicationText = 'Application'
-    let approvalText = 'Approval'
-    let updateText = 'Update'
+    let displayStyle = this.state.menuHidden? {}:{opacity: 1};
 
     return <Row className='dbl-padding-top dbl-margin-top'>
-      <Row className='dbl-padding-top dbl-margin-top dbl-margin-bottom container-relative'>
+      <Row className='dbl-padding-top dbl-margin-top base-margin-bottom container-relative'>
         <div className={`home-title ${this.state.inShort? 'short': ''}`}>
           <span>F</span>
           <span>e</span>
@@ -50,29 +55,28 @@ class Home extends Component {
           <span className='ghost'>n</span>
         </div>
       </Row>
-      <Row className='dbl-padding-top container-relative'>
-        <div className={`home-title home-menu ${this.state.inShort? 'short': ''}`}>
-          { applicationText.split('').map( letter => {
-            return <span className='ghost'>{letter}</span>
-          })}
-        </div>
-      </Row>
-      <Row className='dbl-padding-top container-relative'>
-        <div className={`home-title home-menu ${this.state.inShort? 'short': ''}`}>
-          { approvalText.split('').map( letter => {
-            return <span className='ghost'>{letter}</span>
-          })}
-        </div>
-      </Row>
-      <Row className='dbl-padding-top container-relative'>
-        <div className={`home-title home-menu ${this.state.inShort? 'short': ''}`}>
-          { updateText.split('').map( letter => {
-            return <span className='ghost'>{letter}</span>
-          })}
-        </div>
+      <Row className='half-padding-top container-relative'>
+        <Col lg={6} lgOffset={3}>
+          <Col lg={4} lgOffset={1}>
+            <div className={`home-menu`} style={displayStyle}>
+              <a href='#/application'>Application</a>
+            </div>
+          </Col>
+
+          <Col lg={4} >
+          
+            <div className='home-menu' style={displayStyle}>
+              <a href='#/approval'>Approval</a>
+            </div>
+          </Col>
+          <Col lg={3} >
+            <div className='home-menu' style={displayStyle}>
+              <a href='#/update'>Update</a>
+            </div>
+          </Col>
+        </Col>
       </Row>
     </Row>
-
   }
 }
 

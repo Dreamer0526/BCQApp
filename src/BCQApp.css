@@ -8,10 +8,11 @@
   --green:rgba(82,210,154,1);
   --yellow:rgba(231,196,104,0.7);
   --orange:rgba(235,118,85,1);
-  --dark-bg:rgba(0,0,0,0.9);
+  --dark-bg:#000;
   --light-bg:rgba(255,255,255,0.1);
   --border: #b3aca7;
-  --text: #6D7781;
+  /* --text: #6D7781; */
+  --text: #ccc;
 }
 
 /* General Rules */
