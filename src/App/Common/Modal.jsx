@@ -13,8 +13,18 @@ class Modal extends Component {
         showModal: this.props.display
     }
 
-    this.applySuccessStatement = 'Your application will be sent to group members. To join the group, more than half of group members\' approval is required.'
-    this.updateSuccessStatement = 'Information has been successfully updated.'
+    let successStatement = ''
+    switch(this.props.caller) {
+        case 'application':
+            this.successStatement = 'Your application will be sent to group members. To join the group, more than half of group members\' approval is required.'
+            break
+        case 'approval':
+            this.successStatement = 'User has already been added into group.'
+            break;
+        case 'update':
+            this.successStatement = 'Information has been successfully updated.'
+            break       
+    }
   }
 
   render() {
@@ -22,9 +32,7 @@ class Modal extends Component {
         <div className='modal-wrap'>
             <Row className='modal-close'>
             <Col lgOffset={10}>
-                {/* <a href='/#/'> */}
-                    <span onClick={this.props.modalClose} className="fa fa-times-circle-o fa-2x"/>
-                {/* </a> */}
+                <span onClick={this.props.modalClose} className="fa fa-times-circle-o fa-2x"/>
             </Col>
             </Row>
             <Row className='modal-icon half-margin-top'>
@@ -32,7 +40,7 @@ class Modal extends Component {
             </Row>
             <Row className='modal-title base-margin-bottom'>
                 <h3 className='none-margin'>SUCCESS</h3>
-                <p> {this.props.caller === 'application'? this.applySuccessStatement : this.updateSuccessStatement} </p>
+                <p> {this.successStatement} </p>
             </Row>
         </div>
     </div>

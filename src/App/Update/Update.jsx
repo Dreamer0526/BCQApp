@@ -34,13 +34,14 @@ class Update extends Component {
     this.setState({
       showModal: false
     })
+    this.props.history.history.push('/')
   }
 
   render() {
     return (<Row className='container-relative'>
       { this.state.showModal && <Modal caller='update' modalClose={this.onModalClose.bind(this)}/>}    
       <Col xs={12} sm={10} smOffset={1} md={8} mdOffset={2} lg={6} lgOffset={3}>
-        <Row className='dbl-margin-top'>
+        <Row className='dbl-margin-top base-margin-bottom'>
           <h2> INFORMATION UPDATE </h2>
         </Row>
         <Row className='dbl-padding-bottom'>

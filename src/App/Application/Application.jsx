@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   Row, Col, Form, FormControl, FormGroup, Button
-} from 'react-bootstrap';
-import './Application.css';
-import Modal from '../Common/Modal';
+} from 'react-bootstrap'
+import {withRouter} from "react-router-dom"
+import './Application.css'
+import Modal from '../Common/Modal'
 
 class Application extends Component {
   constructor(props) {
@@ -19,18 +20,39 @@ class Application extends Component {
     }
   }
 
-  handleOnClick() {
+  handleOnSubmit() {
     this.setState({
       submitDisabled: true,
       submitLoading: true
     })
-    setTimeout(() => {
+
+    let data = {
+      name: this.state.name,
+      homeUrl: this.state.url,
+      caCert: this.state.cert
+    }
+    
+    fetch('/add', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then(response => {
       this.setState({
         submitDisabled: false,
         submitLoading: false,
         showModal: true
       })
-    }, 2500)
+    }).catch(error => {
+      setTimeout(() => {
+        this.setState({
+          submitDisabled: false,
+          submitLoading: false,
+          showModal: true
+        })
+      }, 2500)
+    })
   }
 
   handleOnChange(field, value) {
@@ -43,6 +65,8 @@ class Application extends Component {
     this.setState({
       showModal: false
     })
+    let {history} = this.props;
+    history.push('/approval')
   }
 
   render() {
@@ -75,7 +99,7 @@ class Application extends Component {
                               className={`input-field input-submit half-padding-top base-padding-bottom ${this.state.submitDisabled && 'field-disabled'}`}
                               type='submit'
                               value='GO!'
-                              onClick={this.handleOnClick.bind(this)}/>
+                              onClick={this.handleOnSubmit.bind(this)}/>
                 <img  className={`icon-loader ${!this.state.submitLoading && 'hidden'}`}
                     src={require('../../Common/svg-loaders/bars.svg')} />                            
               </FormGroup>

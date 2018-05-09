@@ -1,0 +1,72 @@
+.menu-bg { 
+    z-index: 1000;
+    width: 1000%;
+    height: 90%;
+    background-color: var(--dark-bg);
+    position: absolute;
+    opacity: 0;
+    transition: all .5s linear;
+}
+
+.menu-wrap {
+    z-index: 1050;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 50%;
+    width: 90%;
+}
+
+.menu-title {
+    text-align: left;
+    font-size: 3em;
+    color: #fff;
+    position: relative;
+    border-bottom: 2px rgba(255, 255, 255, .8) solid;  
+}
+
+.menu-entry {
+    margin-left: -60px; 
+}
+
+.underline-placeholder {
+    top: 93%;
+    left: -5%;
+    position: absolute;
+    width: 50px;
+}
+
+.underline-yellow {
+    border-bottom: var(--yellow) 10px solid;
+}
+.underline-green {
+    border-bottom: var(--green) 10px solid;
+}
+.underline-orange {
+    border-bottom: var(--orange) 10px solid;
+}
+
+.menu-entry a {
+    color: #fff;
+    text-decoration: none;
+    transition: all .3s linear;    
+}
+
+.menu-entry-yellow a:hover{
+    cursor: pointer;    
+    color: var(--yellow)
+}
+.menu-entry-orange a:hover{
+    cursor: pointer;    
+    color: var(--orange)
+}
+.menu-entry-green a:hover{
+    cursor: pointer;
+    color: var(--green)
+}
+
+.forbidden {
+    cursor: not-allowed !important;
+    color: #fff !important;
+}

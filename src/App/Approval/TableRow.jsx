@@ -8,6 +8,7 @@ class TableRow extends Component {
 
     this.state = {
       moreContentDisplay: false,
+      loading: false,
     }
   }
 
@@ -25,6 +26,30 @@ class TableRow extends Component {
         })
       }
     </div>
+  }
+
+  onApprove = () => {
+    this.setState({
+      loading: true
+    })
+
+    let data = {
+      address: this.props.data.address
+    }
+    fetch( '/approve', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then(response => {
+      setTimeout(() => {
+        this.props.showModal()
+        this.setState({
+          loading: false,
+        })
+      }, 3000)
+    }).catch(console.error)
   }
 
   render() {
@@ -52,7 +77,13 @@ class TableRow extends Component {
     let cerHeight = cerData.length * 15;    
     let displayStyle = this.state.moreContentDisplay? {height: 85+cerHeight+'px'}: {};
 
-    return <div className='table-row' style={displayStyle}>
+    return <div className='table-row container-relative' style={displayStyle}>
+      {
+        this.state.loading && <div className='icon-bg'>
+        <img  className='icon-loader'
+              src={require('../../Common/svg-loaders/bars.svg')} /> 
+      </div>
+      }
       <ul className='nfl'>
         <li className={itemWidth[0]}><span> {data['name']} </span></li>
         <li className={itemWidth[1] + ' text-align-center'}><a href={data['homeUrl']}> {data['homeUrl']} </a></li>
@@ -65,16 +96,16 @@ class TableRow extends Component {
         </li>
         {this.props.isPendingTab && <li className={itemWidth[3]}>
             <MorphIcon  className='half-margin-right'
-                        onClick={this.props.onApprove}
+                        onClick={this.onApprove.bind(this)}
                         type='check' 
                         size={25}
                         thickness={2}
-                        color={this.props.isPending? 'var(--light-bg)' : 'var(--green)'}/>
+                        color={this.props.status === 'APPROVED'? 'var(--green)': 'var(--light-bg)'}/>
             <MorphIcon  type='cross'
                         onClick={this.props.onDeny}
                         size={25}
                         thickness={2}
-                        color={this.props.isPending? 'var(--light-bg)' : 'var(--orange)'}/>                        
+                        color={this.props.status === 'APPROVED'? 'var(--orange)': 'var(--light-bg)'}/>                        
           </li>
         }
       </ul>
