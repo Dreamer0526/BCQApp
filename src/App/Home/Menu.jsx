@@ -42,9 +42,7 @@ class Menu extends Component {
                 <Row className='dbl-margin-top menu-title'>
                     <span className='underline-placeholder underline-orange'/>
                     <div className='menu-entry menu-entry-orange'>
-                        <a  className={status !== 'APPROVED' && 'forbidden'}
-                            href={status === 'APPROVED'? '#/approval': '#'}
-                            title={status !== 'APPROVED'? titleContent: ''}>
+                        <a  href='#/approval'>
                             APPROVAL
                         </a>
                     </div>

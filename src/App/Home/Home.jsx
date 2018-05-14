@@ -54,7 +54,7 @@ class Home extends Component {
           </div> 
         </Col>
         <Col xs={7} sm={7} md={8} lg={9}>
-          <StatusBar className='base-margin-right' status={this.props.status}/>
+          <StatusBar className='base-margin-right' name={this.props.name} status={this.props.status}/>
         </Col>
       </Row>
       <Menu display={this.state.showMenu} 

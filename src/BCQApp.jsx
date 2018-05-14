@@ -55,13 +55,13 @@ class BCQApp extends Component {
         <div className="app">
           <main>
             <Route path='/' exact render={() => {
-              return <Home status={this.state.userStatus}/>
+              return <Home name={this.state.userSelf.name} status={this.state.userStatus}/>
             }}/>
             <Route path='/application' render={ ({history}) => {
               return <Application history={history}/>
             }}/>
             <Route path='/approval' render={ () => {
-              return <Approval status={this.state.userStatus}/>
+              return <Approval name={this.state.userSelf.name} status={this.state.userStatus}/>
             }}/>
             <Route path={'/update'} render={ (history) => {
               return <Update user={this.state.userSelf} history={history}/>

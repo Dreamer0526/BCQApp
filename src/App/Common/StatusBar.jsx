@@ -25,7 +25,7 @@ class StatusBar extends Component {
         break;
     }
     return <h4 className='pull-right'> 
-        STATUS: {statusIcon} {this.props.status} 
+        NAME: {this.props.name} <span className='half-margin-left'/> STATUS: {statusIcon} {this.props.status} 
     </h4>
   }
 }
