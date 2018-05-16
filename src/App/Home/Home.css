@@ -19,7 +19,6 @@
   color: #fff;
   opacity: 1;
   transition: all 2s ease-in-out;
-  max-width: 2em;
 }
 .home-title.short span.spaced {
   padding-left: 0;
@@ -48,10 +47,19 @@
 .home-menu-bar {
   color:#fff;
   font-size: 24px;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 2s linear;
 }
 
 .home-menu-bar span {
   margin-left: 10px  
+}
+
+.font-20 {
+  font-size:30px !important;
+}
+
+.company-name {
+  top: -15px;
+  position: relative;
 }

@@ -43,14 +43,12 @@ class Home extends Component {
   }
 
   render() {
-    let displayStyle = this.state.menuHidden? {}:{opacity: 1};
-
     return <Row>
-      <Row className='half-padding-top home-menu-bar' style={displayStyle}>
+      <Row className='half-padding-top home-menu-bar'>
         <Col xs={4} sm={4} md={3} lg={2}>
           <div>
+            <span className='fa fa-bars fa-1x half-margin-right' onClick={this.onClickMenu.bind(this)}/> 
             MENU 
-            <span className='fa fa-bars fa-1x' onClick={this.onClickMenu.bind(this)}/> 
           </div> 
         </Col>
         <Col xs={7} sm={7} md={8} lg={9}>
@@ -59,31 +57,15 @@ class Home extends Component {
       </Row>
       <Menu display={this.state.showMenu} 
             status={this.props.status}
-            onEnterEntry={this.handleOnEnterEntry.bind(this)}/>   
-      <div className={`home-title ${this.state.inShort? 'short': ''}`}>
-          <span>F</span>
-          <span>e</span>
-          <span>d</span>
-          <span className='ghost'>e</span>
-          <span className='ghost'>r</span>
-          <span className='ghost'>a</span>
-          <span className='ghost'>t</span>
-          <span className='ghost'>i</span>
-          <span className='ghost'>o</span>
-          <span className='ghost'>n</span>
-          
-          <span className='spaced'>I</span>
-          <span>n</span>
-          <span>t</span>
-          <span className='ghost'>e</span>
-          <span className='ghost'>g</span>
-          <span className='ghost'>r</span>
-          <span className='ghost'>a</span>
-          <span className='ghost'>t</span>
-          <span className='ghost'>i</span>
-          <span className='ghost'>o</span>
-          <span className='ghost'>n</span>
-        </div>
+            onEnterEntry={this.handleOnEnterEntry.bind(this)}/>
+      <div className='home-title'>
+        { this.props.name && <span className='font-20'> Hi, </span>}
+        { this.props.name && <span className='color-orange company-name'> {this.props.name} </span> }
+        { this.props.name && <br/> }
+        <span className='font-20'> Welcome to </span>
+        <br/>
+        <span>Federation Integration</span>
+      </div>
     </Row>
   }
 }

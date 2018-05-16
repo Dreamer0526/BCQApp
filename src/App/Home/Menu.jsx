@@ -43,7 +43,7 @@ class Menu extends Component {
                     <span className='underline-placeholder underline-orange'/>
                     <div className='menu-entry menu-entry-orange'>
                         <a  href='#/approval'>
-                            APPROVAL
+                            MEMBER LIST
                         </a>
                     </div>
                 </Row>
