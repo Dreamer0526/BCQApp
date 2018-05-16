@@ -28,7 +28,7 @@ class Menu extends Component {
 
     return <div className='menu-bg' style={displayStyle}>
         <div className='menu-wrap'>
-            <Col lg={11} lgOffset={1}>
+            <Col lg={11} lgOffset={1} md={10} mdOffset={2} sm={10} smOffset={2} xs={10} xsOffset={2}>
                 <Row className='menu-title menu-title-yellow'>
                     <span className='underline-placeholder underline-yellow'/>
                     <div className='menu-entry menu-entry-yellow'>
