@@ -51,7 +51,7 @@ class Approval extends Component {
     fetch(approvedUrl)
     .then(result => result.json())
     .then(result => {
-      this.approvedData = result
+      this.approvedData = result.concat(approvedData)
     }).catch(error => {
       this.onFetchError()
     })
@@ -59,7 +59,7 @@ class Approval extends Component {
     fetch(allUrl)
     .then(result => result.json())
     .then(result => {
-      this.allData = result
+      this.allData = result.concat(allData)
     }).catch(error => {
       this.onFetchError()
     })
